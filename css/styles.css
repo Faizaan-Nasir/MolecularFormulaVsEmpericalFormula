@@ -1,0 +1,66 @@
+body {
+    margin: none;
+    background-repeat: no-repeat;
+}
+
+textarea {
+    border-radius: 5px;
+    resize: none;
+    font-size: medium;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-bottom: -1%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 2.0%;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    margin-left: 12%;
+    margin-top: 2.5%;
+}
+
+button:hover {
+    background-color: aliceblue;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 5%;
+    font-weight: 900;
+}
+
+h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    margin-left: 10%;
+    margin-right: 32%;
+    margin-top: 1%;
+    font-weight: 900;
+    margin-bottom: 1%;
+}
+
+.special {
+    font-style: italic;
+}
+
+.img {
+    text-align: center;
+}
+
+img {
+    height: 200px;
+}
