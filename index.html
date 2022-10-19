@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molecular Formula</title>
+    <link rel="icon" href="./src/icon.png" />
+</head>
+<style>
+    body {
+        margin: none;
+        background-repeat: no-repeat;
+    }
+
+    textarea {
+        border-radius: 5px;
+        resize: none;
+        font-size: medium;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 10px;
+        margin-bottom: -1%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .text {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: medium;
+        margin-left: 12%;
+        margin-right: 12%;
+        margin-top: 2.0%;
+    }
+
+    button {
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        margin-left: 12%;
+        margin-top: 2.5%;
+    }
+
+    button:hover {
+        background-color: aliceblue;
+    }
+
+    h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: xx-large;
+        text-align: center;
+        margin-top: 5%;
+        font-weight: 900;
+    }
+
+    h2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: larger;
+        margin-left: 10%;
+        margin-right: 32%;
+        margin-top: 4%;
+        font-weight: 900;
+        margin-bottom: 1%;
+    }
+
+    .special {
+        font-style: italic;
+    }
+
+    .img {
+        text-align: center;
+    }
+
+    img {
+        height: 200px;
+    }
+</style>
+
+<body background="./src/bg.png">
+
+    <h1>Molecular Formula Versus Emperical Formula</h1>
+    <div class="img"><img src="./src/icon.png"></div>
+    <h2>What we need to know in this module:</h2>
+    <div class="text">
+        <p>
+            The meaning of <span class="special">molecular formula </span> is a chemical formula that gives the total
+            number
+            of atoms of each element in each molecule of a substance. We have brushed through this term a few times in
+            the
+            past and are pretty familiar with it by now. The sum of mass of all atoms in the molecule is known as the
+            molecular mass of that compound.
+        </p>
+        <p>
+            A formula giving the proportions of the elements present in a compound but not the actual numbers or
+            arrangement of atoms is called the <span class="special">emperical formula</span>. This is a new term that
+            we will learn in grade 11 (if you haven't already). A compound with molecular formula C6H12O6, the emperical
+            formula would be the molecular formula divided by the LCM of all the number of atoms. Thus the emperical
+            formula is CH2O. The mass of this formula is known as the emperical formula mass.
+        </p>
+    </div>
+    <h2>The purpose of this module:</h2>
+    <div class="text">
+        <p>
+            Now that we know the meanings of the term, the fields in this module would begin making sense. You may enter
+            the emperical formula in terms of Elements, and the respective number of atoms of that element in it's
+            emperical formula. You must remember not to put the whole emperical formula in the same text block. Taking
+            our example of CH2O, the number of atoms of Carbon is 1, you may now put the compound 'C' in the field E1
+            and 1 in No. field following the E1 field. You may press the demo button to figure out how to fill the
+            respective fields for our example CH2O.
+        </p>
+    </div>
+    <div class="text">
+        Enter the emperical formula of the compound:
+        <textarea style="margin-right:0px; text-align: center;" id="EFE1" cols="1" rows="1" placeholder="E1"></textarea>
+        <textarea style="margin-left:-3px; text-align: center;" id="EFENo.1" cols="1" rows="1"
+            placeholder="No."></textarea>
+        <textarea style="margin-left:-3px; text-align: center;" id="EFE2" cols="1" rows="1" placeholder="E2"></textarea>
+        <textarea style="margin-left:-3px; text-align: center;" id="EFENo.2" cols="1" rows="1"
+            placeholder="No."></textarea>
+        <textarea style="margin-left:-3px; text-align: center;" id="EFE3" cols="1" rows="1" placeholder="E3"></textarea>
+        <textarea style="margin-left:-3px; text-align: center;" id="EFENo.3" cols="1" rows="1"
+            placeholder="No."></textarea>
+    </div>
+    <div class="text">
+        Enter the molecular mass of the compound:
+        <textarea id="molecular_mass" cols="30" rows="1" placeholder="Enter value here"></textarea>
+    </div>
+    <div class="text">
+        The Molecular Formula would be:
+        <textarea id="MF" cols="30" rows="1" placeholder="Value will display here"></textarea>
+    </div>
+    <button onclick="calculate()">CALCULATE</button>
+    <button onclick="demo()" style="margin-left:2%;">DEMO</button>
+</body>
+<script>
+    let Elements = [
+        { mass: 1, element: "H" },
+        { mass: 4, element: "He" },
+        { mass: 7, element: "Li" },
+        { mass: 9, element: "Be" },
+        { mass: 11, element: "B" },
+        { mass: 12, element: "C" },
+        { mass: 14, element: "N" },
+        { mass: 16, element: "O" },
+        { mass: 19, element: "F" }
+    ]
+    function demo() {
+        document.getElementById("EFE1").innerHTML = "C"
+        document.getElementById("EFENo.1").innerHTML = "1"
+        document.getElementById("EFE2").innerHTML = "H"
+        document.getElementById("EFENo.2").innerHTML = "2"
+        document.getElementById("EFE3").innerHTML = "O"
+        document.getElementById("EFENo.3").innerHTML = "1"
+    }
+    function calculate() {
+        EFM = 0
+        for (i = 0; i <= 8; i++) {
+            if (Elements[i].element == document.getElementById("EFE1").value) {
+                EFM = EFM + (Elements[i].mass) * document.getElementById("EFENo.1").value
+            }
+        }
+        for (j = 0; j <= 8; j++) {
+            if (Elements[j].element == document.getElementById("EFE2").value) {
+                EFM = EFM + (Elements[j].mass) * document.getElementById("EFENo.2").value
+            }
+        }
+        for (k = 0; k <= 8; k++) {
+            if (Elements[k].element == document.getElementById("EFE3").value) {
+                EFM = EFM + (Elements[k].mass) * document.getElementById("EFENo.3").value
+            }
+        }
+        number = document.getElementById("molecular_mass").value / EFM
+        n1 = String(document.getElementById("EFENo.1").value * number)
+        n2 = String(document.getElementById("EFENo.2").value * number)
+        n3 = String(document.getElementById("EFENo.3").value * number)
+        MF = String(document.getElementById("EFE1").value + n1 + document.getElementById("EFE2").value + n2 + document.getElementById("EFE3").value + n3)
+        document.getElementById("MF").innerHTML = MF
+    }
+</script>
+
+</html>
